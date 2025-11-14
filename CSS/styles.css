@@ -1,0 +1,118 @@
+/* Fondo del body */
+body {
+    background-color: #f8f9fa;
+}   
+
+/* CSS footer y header */
+.background_navbar{
+    background-color: #c4dafa;
+}
+
+.background_footer{
+    background-color: #eeeeee;
+}
+
+.logo-navbar {
+    width: 90px !important;
+    height: auto !important;
+    display: block !important;
+}
+
+.icon-login {
+    max-width: 35px !important;
+    max-height: 35px !important;
+    width: 35px !important;
+    height: auto !important;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.input-search{
+    background-color: #fffbef;
+}
+
+.icon-search {
+    max-width: 15px !important;
+    max-height: 15px !important;
+    width: 15px !important;
+    height: auto !important;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* Justificado de texto */
+.justificado {
+    text-align: justify;      
+    text-justify: inter-word; 
+    hyphens: auto;          
+    line-height: 1.6;        
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    text-align-last: left;
+}
+
+/* Redondeo de esquinas */
+.rounded{
+    border-radius: 15px;
+}
+
+/* Boton con cambio de color*/
+.btn-link.boton-btn {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.btn-link.boton-btn:hover {
+    color: #fff6e0 !important;
+}
+
+.btn-link.footer-btn {
+    color: black !important;
+}
+
+.btn-link.footer-btn:hover {
+    color: #fff6e0 !important;
+}
+
+/* Linea mas ancha */
+.hr-grueso {
+    height: 4px;
+}
+
+/* Main */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+}
+
+/* CSS Tranductor */
+.textarea-estilizado {
+    height: 270px;
+    background-color: #ffffff;
+    color: #212529;                   /* Texto elegante y legible */
+    font-family: "Segoe UI", Roboto, sans-serif;
+    font-size: 2rem;
+    line-height: 1.5;
+
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+
+    padding: 12px 14px;
+    resize: none;                    /* Evita deformación si no la quieres */
+
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+    transition: all 0.2s ease-in-out;
+}
+
+.textarea-estilizado:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+.textarea-estilizado:disabled {
+    background-color: white !important;
+    color: #6c757d;
+    opacity: 1;
+}
