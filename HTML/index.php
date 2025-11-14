@@ -1,5 +1,5 @@
 <?php
-include_once '../PHP/textos.php';
+    include_once '../PHP/textos.php';
 ?>
 
 <!DOCTYPE html>
