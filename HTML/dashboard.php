@@ -82,13 +82,12 @@ $con = conectar();
         <table class="table">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido Paterno</th>
-                <th scope="col">Apellido Materno</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Email</th>
-                <th scope="col">Nivel</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,12 +97,11 @@ $con = conectar();
                         ?>
                         <tr>
                             <th scope="row"> <?php echo $fila['ID_Usuario'] ?> </th>
-                            <td> <?php echo $fila['Nombre'] ?> </td>
-                            <td> <?php echo $fila['aPaterno'] ?> </td>
-                            <td> <?php echo $fila['aMaterno'] ?> </td>
+                            <td> <?php echo $fila['Nombre']. " " .$fila['aPaterno']. " " .$fila['aMaterno'] ?> </td>
                             <td> <?php echo $fila['Usuario'] ?> </td>
                             <td> <?php echo $fila['Correo'] ?> </td>  
                             <td> <?php echo $fila['nivel'] ?>  </td>
+                            <td><a href="../php/eliminarU.php?user=<?php echo $fila['Usuario'];?>">Eliminar</a></td>
                         </tr>
                     <?php } 
                 ?>
@@ -180,7 +178,7 @@ $con = conectar();
             <hr class="mb-2 hr-grueso">
 
             <section class="offcanvas-body">
-                <form action="../php/login.php" method="POST" autocomplete="off" onsubmit="return valUser(this.elements['usuario'].value, this.elements['contrasena'].value);" 
+                <form action="../php/login.php" method="POST" onsubmit="return valUser(this.elements['usuario'].value, this.elements['contrasena'].value);" 
                     class="p-3 border rounded bg-light shadow-sm needs-validation" novalidate>
 
                     <div class="form-floating mb-3">
@@ -232,7 +230,7 @@ $con = conectar();
 
                 <section class="modal-body">
                     <form action="../php/agregarU.php" method="POST" 
-                        onsubmit="return validar(this.email.value);">
+                        onsubmit="return validar(this.email.value);" autocomplete="off">
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="name"

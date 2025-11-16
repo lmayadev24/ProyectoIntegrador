@@ -211,7 +211,7 @@
             <hr class="mb-2 hr-grueso">
 
             <section class="offcanvas-body">
-                <form action="../php/login.php" method="POST" autocomplete="off" onsubmit="return valUser(this.elements['usuario'].value, this.elements['contrasena'].value);" 
+                <form action="../php/login.php" method="POST" onsubmit="return valUser(this.elements['usuario'].value, this.elements['contrasena'].value);" 
                     class="p-3 border rounded bg-light shadow-sm needs-validation" novalidate>
 
                     <div class="form-floating mb-3">
@@ -263,7 +263,7 @@
 
                 <section class="modal-body">
                     <form action="../php/agregarU.php" method="POST" 
-                        onsubmit="return validar(this.email.value);">
+                        onsubmit="return validar(this.email.value);" autocomplete="off">
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="name"
