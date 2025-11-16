@@ -13,7 +13,7 @@ login($con, $User, $Password);
 function login($con, $User, $Password){
     try{
         // Consulta usando prepared statements
-        $stmt = $con->prepare("SELECT Usuario, Nombre, nivel 
+        $stmt = $con->prepare("SELECT *
                             FROM usuarios 
                             WHERE Usuario = ? AND Contrasena = ?");
         $stmt->bind_param("ss", $User, $Password);
@@ -28,6 +28,9 @@ function login($con, $User, $Password){
             // Guardar datos esenciales del usuario en la sesión
             $_SESSION['usuario'] = $usuario['Usuario'];
             $_SESSION['nombre'] = $usuario['Nombre'];
+            $_SESSION['paterno'] = $usuario['aPaterno'];
+            $_SESSION['materno'] = $usuario['aMaterno'];
+            $_SESSION['email'] = $usuario['Correo'];
             $_SESSION['nivel'] = $usuario['nivel'];
 
             // Redirección

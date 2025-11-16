@@ -1,6 +1,61 @@
 <?php
 
 function obtenerTexto($tipo) {
+    if ($tipo === 'usuario') {
+        /* ============================================================
+            Usuario
+        ============================================================ */
+        // Verificar si la sesión está iniciada
+        if (!isset($_SESSION['usuario'])) {
+            return '
+                <header class="offcanvas-header">
+                    <h2 class="offcanvas-title" id="offcanvaOfAccount">Iniciar sesión</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                </header>
+
+                <hr class="mb-2 hr-grueso">
+
+                <section class="offcanvas-body">
+                    <p class="text-muted">No hay una sesión activa en este momento.</p>
+                </section>
+            ';
+        }
+
+        // Si existe sesión, extraemos los datos
+        $usuario  = $_SESSION['usuario'] ?? '';
+        $nombre   = $_SESSION['nombre'] ?? '';
+        $paterno  = $_SESSION['paterno'] ?? '';
+        $materno  = $_SESSION['materno'] ?? '';
+        $email    = $_SESSION['email'] ?? '';
+
+        // Construimos el HTML
+        return "
+            <header class='offcanvas-header'>
+                <h2 class='offcanvas-title' id='offcanvaOfAccount'>Mi cuenta</h2>
+                <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Cerrar'></button>
+            </header>
+
+            <hr class='mb-2 hr-grueso'>
+
+            <section class='offcanvas-body'>
+                <div class='p-3 border rounded bg-light shadow-sm'>
+                    <h5 class='mb-3'>Información del usuario</h5>
+
+                    <p><strong>Usuario:</strong> {$usuario}</p>
+                    <p><strong>Nombre:</strong> {$nombre} {$paterno} {$materno}</p>
+                    <p><strong>Correo:</strong> {$email}</p>
+                </div>
+
+                <hr class='my-3 hr-grueso'>
+
+                <form action='../php/logout.php' method='POST'>
+                    <button type='submit' class='btn btn-danger w-100'>
+                        Cerrar sesión
+                    </button>
+                </form>
+            </section>
+        ";
+    }
 
     $textos = [
 

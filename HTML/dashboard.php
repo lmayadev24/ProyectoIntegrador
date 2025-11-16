@@ -30,7 +30,7 @@ $con = conectar();
 <body>
     <header>
         <nav class="navbar navbar-expand-lg background_navbar">
-            <a class="navbar-brand me-5 ms-5" href="../html/index.php">
+            <a class="navbar-brand me-5 ms-5" href="index.php">
                 <figure>
                     <img src="../image/logo.png" alt="Logo de EnRelieve" class="logo-navbar">
                 </figure>
@@ -55,7 +55,7 @@ $con = conectar();
 
                 <ul class="navbar-nav ms-5 me-2 mb-2 mb-lg-0">
                     <li class="nav-item me-1">
-                        <a class="nav-link nav-btn" aria-current="page" href="#">Traductor</a>
+                        <a class="nav-link nav-btn" aria-current="page" href="translate.php">Traductor</a>
                     </li>
 
                     <li class="nav-item me-1">
@@ -215,7 +215,9 @@ $con = conectar();
                 </nav>
             </section>
         <?php else: ?>
-
+            <?php
+                echo obtenerTexto('usuario');
+            ?>
         <?php endif; ?>
     </aside>
 

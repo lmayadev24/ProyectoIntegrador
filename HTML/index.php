@@ -246,7 +246,9 @@
                 </nav>
             </section>
         <?php else: ?>
-
+            <?php
+                echo obtenerTexto('usuario');
+            ?>
         <?php endif; ?>
     </aside>
 
@@ -334,7 +336,7 @@
         </div>
     </div>
 
-    <!-- MODAL Avsio de Privacidad -->
+    <!-- MODAL Aviso de Privacidad -->
     <div class="modal fade" id="avisoPrivacidad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="apLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">

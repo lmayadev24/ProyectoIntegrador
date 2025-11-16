@@ -26,7 +26,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg background_navbar">
-            <a class="navbar-brand me-5 ms-5" href="../html/index.php">
+            <a class="navbar-brand me-5 ms-5" href="index.php">
                 <figure>
                     <img src="../image/logo.png" alt="Logo de EnRelieve" class="logo-navbar">
                 </figure>
@@ -205,7 +205,9 @@
                 </nav>
             </section>
         <?php else: ?>
-
+            <?php
+                echo obtenerTexto('usuario');
+            ?>
         <?php endif; ?>
     </aside>
 
