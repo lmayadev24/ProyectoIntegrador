@@ -51,7 +51,7 @@
 
                 <ul class="navbar-nav ms-5 me-2 mb-2 mb-lg-0">
                     <li class="nav-item me-1">
-                        <a class="nav-link nav-btn" aria-current="page" href="#">Lecciones</a>
+                        <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
                     </li>
 
                     <!-- HTML que solo se muestra si el usuario es Administrador o Supervisor -->
