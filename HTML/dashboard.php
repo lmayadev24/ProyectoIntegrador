@@ -58,9 +58,15 @@ $con = conectar();
                         <a class="nav-link nav-btn" aria-current="page" href="translate.php">Traductor</a>
                     </li>
 
-                    <li class="nav-item me-1">
-                        <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
-                    </li>
+                    <?php if (empty($_SESSION['usuario'])): ?>
+                        <li class="nav-item me-1">
+                            <a class="nav-link disable" aria-current="page" href="#">Lecciones</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item me-1">
+                            <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
+                        </li>
+                    <?php endif; ?>
 
                     <!-- HTML que cambia el botón si no hay un login valido -->
                     <?php if (empty($_SESSION['usuario'])): ?>

@@ -50,9 +50,15 @@
                 </form>
 
                 <ul class="navbar-nav ms-5 me-2 mb-2 mb-lg-0">
-                    <li class="nav-item me-1">
-                        <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
-                    </li>
+                    <?php if (empty($_SESSION['usuario'])): ?>
+                        <li class="nav-item me-1">
+                            <a class="nav-link disable" aria-current="page" href="#">Lecciones</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item me-1">
+                            <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
+                        </li>
+                    <?php endif; ?>
 
                     <!-- HTML que solo se muestra si el usuario es Administrador o Supervisor -->
                     <?php if (isset($_SESSION['nivel']) && isset($_SESSION['usuario']) &&
