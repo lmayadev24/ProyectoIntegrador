@@ -362,12 +362,28 @@
     <script src="../js/validaciones.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
 
-    <?php if (isset($_GET['error'])): ?>
-        <script>
-            window.onload = function () {
-                alert("Usuario no encontrado");
-            };
-        </script>
-    <?php endif; ?>
+    <?php
+    if (isset($_GET['error'])) {
+
+        $mensaje = "";
+
+        switch ($_GET['error']) {
+            case "1":
+                $mensaje = "Usuario no encontrado";
+                break;
+            case "2":
+                $mensaje = "El correo ya existe";
+                break;
+            case "3":
+                $mensaje = "El usuario ya existe";
+                break;
+            default:
+                $mensaje = "Error desconocido";
+        }
+
+        echo "<script>alert('$mensaje');</script>";
+    }
+    ?>
+
 </body>
 </html>
