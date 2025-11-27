@@ -328,5 +328,21 @@
             document.getElementById("textBraille").value = "";
         }
     </script>
+    <?php if (isset($_GET['error'])): ?>
+        <script>
+        window.onload = function () {
+
+            <?php if ($_GET['error'] == 1): ?>
+                alert("Usuario no encontrado");
+            <?php elseif ($_GET['error'] == 2): ?>
+                alert("El correo ya existe");
+            <?php elseif ($_GET['error'] == 3): ?>
+                alert("El usuario ya existe");
+            <?php else: ?>
+                alert("Error desconocido");
+            <?php endif; ?>
+        };
+        </script>
+    <?php endif; ?>
 </body>
 </html>
