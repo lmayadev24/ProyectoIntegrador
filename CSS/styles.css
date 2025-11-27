@@ -123,3 +123,8 @@ body {
 .table-link:hover{
     color: red;
 }
+
+.tabla-scroll {
+    max-height: 350px;    /* altura aprox. para 6 filas; ajusta si deseas */
+    overflow-y: auto;
+}
