@@ -97,6 +97,7 @@
                                 document.getElementById('textBraille'))">
                 Traducir
             </button>
+            <button onclick="limpiarTextareas()" class="btn btn-primary ms-5">Limpiar</button>
         </section>
     </main>
 
@@ -321,5 +322,11 @@
     <script src="../js/validaciones.js"></script>
     <script src="../JS/Traduccion.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        function limpiarTextareas() {
+            document.getElementById("textSpanish").value = "";
+            document.getElementById("textBraille").value = "";
+        }
+    </script>
 </body>
 </html>
