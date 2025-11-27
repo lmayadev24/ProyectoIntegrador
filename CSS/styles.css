@@ -124,6 +124,11 @@ body {
     color: red;
 }
 
+.tabla-scroll {
+    max-height: 350px;    /* altura aprox. para 6 filas; ajusta si deseas */
+    overflow-y: auto;
+}
+
 .main-enhanced {
     background-color: #ffffff;
     box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);

@@ -78,37 +78,81 @@ $con = conectar();
     </header>
 
     <!-- TABLE -->
-    <main class="container bg-light text-dark pt-2 pb-2">
-        <table class="table table-success table-striped-columns table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Nivel</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $datos = datos($con);
-                    while($fila = $datos->fetch_assoc()){
-                        ?>
-                        <tr>
-                            <th scope="row"> <?php echo $fila['ID_Usuario'] ?> </th>
-                            <td> <?php echo $fila['Nombre']. " " .$fila['aPaterno']. " " .$fila['aMaterno'] ?> </td>
-                            <td> <?php echo $fila['Usuario'] ?> </td>
-                            <td> <?php echo $fila['Correo'] ?> </td>  
-                            <td> <?php echo $fila['nivel'] ?>  </td>
-                            <td><a class="table-link" href="../php/eliminarU.php?user=<?php echo $fila['Usuario'];?>">Eliminar</a></td>
-                        </tr>
-                    <?php } 
-                ?>
-            </tbody>
-        </table>
+    <main class="container bg-light text-dark pt-2 pb-2" >
+        <section aria-labelledby="titulo-usuarios" class="table-responsive tabla-scroll">
+            <H2 id="titulo-usuarios">Usuarios registrados</H2>
+            <table class="table table-bordered  table-hover">
+                <thead>
+                    <tr class="table-secondary">
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Nivel</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $datos = datos($con);
+                        while($fila = $datos->fetch_assoc()){
+                            ?>
+                            <tr>
+                                <th scope="row"> <?php echo $fila['ID_Usuario'] ?> </th>
+                                <td> <?php echo $fila['Nombre']. " " .$fila['aPaterno']. " " .$fila['aMaterno'] ?> </td>
+                                <td> <?php echo $fila['Usuario'] ?> </td>
+                                <td> <?php echo $fila['Correo'] ?> </td>
+                                <td>
+                                    <!--Válida que nivel de usuario tienes para mostrar una tabla dependiendo del caso-->
+                                    <?php if ($_SESSION['nivel'] == 'Administrador'): ?>
+
+                                        <?php switch ($fila['nivel']):
+
+                                            case 'Administrador': ?>
+                                                <?php echo $fila['nivel'] ?>
+                                            <?php break;
+
+                                            case 'Supervisor': ?>
+                                                <select class="form-select form-select-sm text_select" aria-label="select Supervisor"
+                                                onchange="cambiarNivel(this, '<?= $fila['Usuario'] ?>')">
+                                                    <option selected disabled><?php echo $fila['nivel'] ?></option>
+                                                    <option value="Usuario">Usuario</option>
+                                                </select>
+                                            <?php break;
+
+                                            case 'Usuario': ?>
+                                            <select class="form-select form-select-sm text_select" aria-label="select Usuario"
+                                            onchange="cambiarNivel(this, '<?= $fila['Usuario'] ?>')">
+                                                    <option selected disabled><?php echo $fila['nivel'] ?></option>
+                                                    <option value="Supervisor">Supervisor</option>
+                                                </select>
+                                            <?php break;
+                                        endswitch; ?>
+
+                                    <?php else: ?>
+                                        <?php echo $fila['nivel'] ?>
+                                    <?php endif; ?>
+                                </td>
+
+                                <td>
+                                    <!--Si eres administrador, no puedes eliminarte-->
+                                    <?php if ($fila['nivel'] === 'Administrador'): ?>
+                                        <p>Eliminar</p>
+                                    <?php else: ?>
+                                        <a class="table-link" 
+                                        href="../php/eliminarU.php?user=<?php echo $fila['Usuario'];?>&nivel=<?php echo $fila['Nivel'];?>">Eliminar</a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php } 
+                    ?>
+                </tbody>
+            </table>
+        </section>
     </main>
 
+
+    
     <footer class="container-fluid background_footer text-dark pt-5 pb-4">
         <section class="text-center text-md-start">
             <div class="row text-center text-md-start">
@@ -328,5 +372,11 @@ $con = conectar();
     <script src="../js/componentes.js"></script>
     <script src="../js/validaciones.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        function cambiarNivel(select, user) {
+            let nivel = select.value;
+            window.location.href = "../PHP/modificar.php?nivel=" + nivel + "&user=" + user;
+        }
+    </script>
 </body>
 </html>
