@@ -60,7 +60,7 @@
                         </li>
                     <?php else: ?>
                         <li class="nav-item me-1">
-                            <a class="nav-link nav-btn" aria-current="page" href="#">Lecciones</a>
+                            <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
                         </li>
                     <?php endif; ?>
 

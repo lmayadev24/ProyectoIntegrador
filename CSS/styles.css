@@ -128,3 +128,20 @@ body {
     max-height: 350px;    /* altura aprox. para 6 filas; ajusta si deseas */
     overflow-y: auto;
 }
+
+.main-enhanced {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+}
+
+.lesson-section {
+    background-color: #f0f8ff;
+    box-shadow: inset 0 1px 6px rgb(0 0 0 / 0.05);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.lesson-section h2 {
+    color: #0d6efd; /* Bootstrap primary blue */
+}

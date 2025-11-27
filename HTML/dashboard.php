@@ -59,7 +59,7 @@ $con = conectar();
                     </li>
 
                     <li class="nav-item me-1">
-                        <a class="nav-link nav-btn" aria-current="page" href="#">Lecciones</a>
+                        <a class="nav-link nav-btn" aria-current="page" href="lessons.php">Lecciones</a>
                     </li>
 
                     <!-- HTML que cambia el botón si no hay un login valido -->
